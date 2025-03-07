@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>女神节快乐</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .background-image {
+            background-image: url('images/background.jpg') !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 添加背景图片容器 -->
+    <div class="background-container">
+        <div class="background-image" style="
+            opacity: 0;
+            animation: fadeIn 3s ease-in forwards;
+        "></div>
+    </div>
+    <style>
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 0.5;
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+    </style>
+    
+    <div class="flower-container">
+        <!-- 花朵动画元素将通过JS生成 -->
+    </div>
+    
+    <div class="content">
+        <div class="card" style="
+            background: linear-gradient(45deg, #ffd1dc, #ffe5e5, #fff0f5);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform-origin: center center;
+            position: relative;
+            opacity: 0;
+            animation: fadeInCard 2s ease-in forwards, randomFloat 15s ease-in-out infinite;">
+            <div class="nordic-decoration"></div>
+            <h1 class="title" style="color: #ff69b4; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">女神节快乐</h1>
+            <p class="message" style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px; margin: 10px 0; backdrop-filter: blur(5px);">亲爱的霞霞，</p>
+            <p class="message" style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px; margin: 10px 0; backdrop-filter: blur(5px);">在这个属于你的节日里，</p>
+            <p class="message" style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px; margin: 10px 0; backdrop-filter: blur(5px);">愿你如西江花海的晨曦般明媚，</p>
+            <p class="message" style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px; margin: 10px 0; backdrop-filter: blur(5px);">如春日的花朵般绽放。</p>
+            <p class="message" style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px; margin: 10px 0; backdrop-filter: blur(5px);">你的笑容是我生命中最美的风景，</p>
+            <p class="message" style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px; margin: 10px 0; backdrop-filter: blur(5px);">感谢你带给我的每一刻温暖与感动。</p>
+            <p class="signature" style="color: #ff69b4; font-style: italic;">爱你的我</p>
+            
+            <div class="heart-container">
+                <div class="heart" id="clickableHeart"></div>
+                <div class="heart-message" id="heartMessage">女神节快乐</div>
+            </div>
+        </div>
+        <style>
+            /* 卡片淡入动画 */
+            @keyframes fadeInCard {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* 卡片漂浮动画 */
+            @keyframes randomFloat {
+                0%, 100% {
+                    transform: translate(0, 0);
+                }
+                20% {
+                    transform: translate(150px, 150px) rotate(2deg);
+                }
+                40% {
+                    transform: translate(-150px, 150px) rotate(-3deg);
+                }
+                60% {
+                    transform: translate(150px, -150px) rotate(1deg);
+                }
+                80% {
+                    transform: translate(-150px, -150px) rotate(-2deg);
+                }
+            }
+            /* 心形消息样式 */
+            .heart-message {
+                position: absolute;
+                top: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(45deg, #ff69b4, #ff8da1);
+                color: white;
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 16px;
+                font-weight: bold;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.5s ease;
+            }
+            
+            /* 心形消息显示动画 */
+            .heart-message.show {
+                animation: messagePopup 2s ease-in-out;
+            }
+            
+            @keyframes messagePopup {
+                0% {
+                    opacity: 0;
+                    transform: translate(-50%, 20px);
+                }
+                20% {
+                    opacity: 1;
+                    transform: translate(-50%, -10px);
+                }
+                80% {
+                    opacity: 1;
+                    transform: translate(-50%, -10px);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, -30px);
+                }
+            }
+            
+            /* 使红心可点击 */
+            #clickableHeart {
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            
+            #clickableHeart:hover {
+                transform: rotate(45deg) scale(1.1);
+            }
+        </style>
+    </div>
+    
+    <!-- 只保留一个音乐控制器 -->
+    <div class="music-control">
+        <audio id="bgMusic" loop>
+            <!-- 使用网易云音乐的直接MP3链接 -->
+            <source src="https://music.163.com/song/media/outer/url?id=253615.mp3" type="audio/mpeg">
+            <!-- 备用音乐链接 -->
+            <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0c6ff1eab.mp3?filename=relaxing-145038.mp3" type="audio/mpeg">
+        </audio>
+        <button id="musicToggle">♫</button>
+    </div>
+    
+    <script src="js/script.js"></script>
+    
+    <script>
+        // 添加音乐自动播放脚本
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            
+            // 用户交互后尝试播放音乐
+            function tryPlayMusic() {
+                bgMusic.play().then(() => {
+                    musicToggle.classList.add('playing');
+                    document.removeEventListener('click', tryPlayMusic);
+                }).catch(err => {
+                    console.log('需要用户交互才能播放音乐');
+                });
+            }
+            
+            // 添加点击事件监听
+            document.addEventListener('click', tryPlayMusic);
+            
+            // 初始尝试播放
+            tryPlayMusic();
+        });
+    </script>
+</body>
+</html>
